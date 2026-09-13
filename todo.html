@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Farhan To-Do App</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: Arial, sans-serif;
+            background: #07111f;
+            color: white;
+        }
+
+        .todo-app {
+            width: 420px;
+            max-width: 90%;
+            padding: 30px;
+
+            background: #111c2d;
+            border: 1px solid #334155;
+            border-radius: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #38bdf8;
+            margin-bottom: 25px;
+        }
+
+        .input-box {
+            display: flex;
+            gap: 10px;
+        }
+
+        #taskInput {
+            flex: 1;
+            padding: 14px;
+
+            background: #07111f;
+            color: white;
+
+            border: 1px solid #334155;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .add-btn {
+            padding: 14px 18px;
+
+            border: none;
+            border-radius: 8px;
+
+            background: #38bdf8;
+            color: #07111f;
+
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 25px;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 13px;
+            margin-bottom: 10px;
+
+            background: #07111f;
+            border: 1px solid #1e293b;
+            border-radius: 8px;
+        }
+
+        li.completed span {
+            text-decoration: line-through;
+            color: #64748b;
+        }
+
+        li span {
+            cursor: pointer;
+        }
+
+        .delete-btn {
+            border: none;
+            background: #ef4444;
+            color: white;
+
+            padding: 7px 10px;
+            border-radius: 6px;
+
+            cursor: pointer;
+        }
+
+        .empty {
+            text-align: center;
+            color: #64748b;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="todo-app">
+
+        <h1>✅ Farhan To-Do</h1>
+
+        <div class="input-box">
+
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="Enter your task..."
+            >
+
+            <button class="add-btn" onclick="addTask()">
+                Add
+            </button>
+
+        </div>
+
+        <ul id="taskList"></ul>
+
+        <p id="emptyMessage" class="empty">
+            No tasks yet. Add your first task!
+        </p>
+
+    </div>
+
+
+    <script>
+
+        const taskInput = document.getElementById("taskInput");
+        const taskList = document.getElementById("taskList");
+        const emptyMessage = document.getElementById("emptyMessage");
+
+
+        function addTask() {
+
+            const taskText = taskInput.value.trim();
+
+            if (taskText === "") {
+                alert("Please enter a task!");
+                return;
+            }
+
+
+            const li = document.createElement("li");
+
+
+            const span = document.createElement("span");
+
+            span.textContent = taskText;
+
+            span.onclick = function() {
+                li.classList.toggle("completed");
+            };
+
+
+            const deleteButton = document.createElement("button");
+
+            deleteButton.textContent = "Delete";
+
+            deleteButton.className = "delete-btn";
+
+            deleteButton.onclick = function() {
+                li.remove();
+                updateEmptyMessage();
+            };
+
+
+            li.appendChild(span);
+            li.appendChild(deleteButton);
+
+            taskList.appendChild(li);
+
+
+            taskInput.value = "";
+
+            updateEmptyMessage();
+        }
+
+
+        function updateEmptyMessage() {
+
+            if (taskList.children.length === 0) {
+                emptyMessage.style.display = "block";
+            } else {
+                emptyMessage.style.display = "none";
+            }
+
+        }
+
+
+        taskInput.addEventListener("keydown", function(event) {
+
+            if (event.key === "Enter") {
+                addTask();
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
