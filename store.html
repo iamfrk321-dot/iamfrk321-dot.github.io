@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FarhanFashion | Premium Clothing Store</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f7f7f8;
+            color: #171717;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(17, 17, 17, 0.97);
+            color: white;
+
+            padding: 18px 6%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #f5b301;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #f5b301;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 520px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 40px 20px;
+
+            background:
+                linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.70)),
+                url("https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1600&q=85");
+
+            background-size: cover;
+            background-position: center;
+
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #eeeeee;
+        }
+
+        .hero button {
+            border: none;
+            padding: 15px 30px;
+
+            background: #f5b301;
+            color: #111;
+
+            border-radius: 8px;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            transform: scale(1.04);
+        }
+
+        /* SECTION */
+
+        .section {
+            padding: 70px 6%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        /* SEARCH */
+
+        .search-area {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .search-area input {
+            width: 100%;
+            max-width: 600px;
+
+            padding: 15px 18px;
+
+            border: 1px solid #ddd;
+            border-radius: 10px;
+
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-area input:focus {
+            border-color: #f5b301;
+        }
+
+        /* FILTER */
+
+        .filters {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .filters button {
+            border: none;
+            padding: 10px 18px;
+            margin: 5px;
+
+            background: #171717;
+            color: white;
+
+            border-radius: 7px;
+
+            cursor: pointer;
+        }
+
+        .filters button:hover {
+            background: #f5b301;
+            color: #111;
+        }
+
+        /* PRODUCTS */
+
+        .products {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(240px, 1fr));
+
+            gap: 28px;
+        }
+
+        .product {
+            background: white;
+
+            border-radius: 15px;
+            overflow: hidden;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .product img {
+            width: 100%;
+            height: 290px;
+
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .description {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .product-btn {
+            width: 100%;
+
+            border: none;
+            padding: 13px;
+
+            background: #171717;
+            color: white;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .product-btn:hover {
+            background: #f5b301;
+            color: #111;
+        }
+
+        /* CART */
+
+        .cart-section {
+            padding: 0 6% 70px;
+        }
+
+        .cart-box {
+            background: white;
+
+            border-radius: 15px;
+
+            padding: 30px;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .cart-title {
+            font-size: 30px;
+            margin-bottom: 25px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 20px;
+
+            padding: 18px 0;
+
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-name {
+            font-weight: bold;
+        }
+
+        .cart-item-details {
+            color: #777;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quantity button {
+            width: 32px;
+            height: 32px;
+
+            border: none;
+
+            background: #171717;
+            color: white;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            font-size: 18px;
+        }
+
+        .quantity span {
+            min-width: 25px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .remove {
+            border: none;
+            background: #dc2626;
+            color: white;
+
+            padding: 8px 12px;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+        }
+
+        .cart-summary {
+            margin-top: 25px;
+            text-align: right;
+        }
+
+        .total {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .checkout-btn {
+            border: none;
+
+            padding: 15px 25px;
+
+            background: #25D366;
+            color: white;
+
+            border-radius: 8px;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .checkout-btn:hover {
+            background: #1ebe5d;
+        }
+
+        /* MODAL */
+
+        .modal {
+            display: none;
+
+            position: fixed;
+            z-index: 2000;
+
+            left: 0;
+            top: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: rgba(0,0,0,0.65);
+
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+
+            width: 100%;
+            max-width: 500px;
+
+            border-radius: 15px;
+
+            padding: 30px;
+
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 20px;
+        }
+
+        .close {
+            float: right;
+
+            font-size: 25px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+
+            padding: 12px;
+
+            border: 1px solid #ddd;
+            border-radius: 7px;
+
+            font-size: 15px;
+        }
+
+        .form-group textarea {
+            height: 90px;
+            resize: none;
+        }
+
+        .place-order {
+            width: 100%;
+
+            border: none;
+
+            padding: 14px;
+
+            background: #25D366;
+            color: white;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: #111;
+            color: white;
+
+            text-align: center;
+
+            padding: 70px 6%;
+        }
+
+        .about h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            max-width: 750px;
+            margin: auto;
+
+            line-height: 1.8;
+
+            color: #ccc;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #080808;
+            color: white;
+
+            text-align: center;
+
+            padding: 25px;
+        }
+
+        footer p {
+            color: #aaa;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cart-summary {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            Farhan<span>Fashion</span> 🛍️
+        </div>
+
+        <div>
+            <a href="#home">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#about">About</a>
+            <a href="#cart">Cart 🛒</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>Style That Speaks.</h1>
+
+            <p>
+                Discover premium fashion, modern styles
+                and everyday essentials.
+            </p>
+
+            <button onclick="goToShop()">
+                Shop Collection
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- SHOP -->
+
+    <section class="section" id="shop">
+
+        <h2 class="section-title">
+            Our Collection
+        </h2>
+
+        <p class="section-subtitle">
+            Choose your favourite style
+        </p>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-area">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔍 Search products..."
+                onkeyup="searchProducts()"
+            >
+
+        </div>
+
+
+        <!-- FILTER -->
+
+        <div class="filters">
+
+            <button onclick="filterProducts('all')">
+                All
+            </button>
+
+            <button onclick="filterProducts('men')">
+                Men
+            </button>
+
+            <button onclick="filterProducts('women')">
+                Women
+            </button>
+
+            <button onclick="filterProducts('shoes')">
+                Shoes
+            </button>
+
+        </div>
+
+
+        <!-- PRODUCTS -->
+
+        <div class="products">
+
+
+            <!-- PRODUCT 1 -->
+
+            <div class="product" data-category="men">
+
+                <img
+                    src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=85"
+                    alt="Classic T-Shirt"
+                >
+
+                <div class="product-info">
+
+                    <h3>Classic T-Shirt</h3>
+
+                    <p class="description">
+                        Comfortable premium cotton
+                        everyday T-shirt.
+                    </p>
+
+                    <div class="price">
+                        ₹599
+                    </div>
+
+                    <button
+                        class="product-btn"
+                        onclick="openProduct('Classic T-Shirt',599)"
+                    >
+                        View & Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+
+            <div class="product" data-category="women">
+
+                <img
+                    src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=85"
+                    alt="Fashion Dress"
+                >
+
+                <div class="product-info">
+
+                    <h3>Women's Fashion Dress</h3>
+
+                    <p class="description">
+                        Elegant modern dress for
+                        special occasions.
+                    </p>
+
+                    <div class="price">
+                        ₹999
+                    </div>
+
+                    <button
+                        class="product-btn"
+                        onclick="openProduct('Women Fashion Dress',999)"
+                    >
+                        View & Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+
+            <div class="product" data-category="shoes">
+
+                <img
+                    src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85"
+                    alt="Sports Shoes"
+                >
+
+                <div class="product-info">
+
+                    <h3>Premium Sports Shoes</h3>
+
+                    <p class="description">
+                        Stylish and comfortable
+                        shoes for daily wear.
+                    </p>
+
+                    <div class="price">
+                        ₹1499
+                    </div>
+
+                    <button
+                        class="product-btn"
+                        onclick="openProduct('Premium Sports Shoes',1499)"
+                    >
+                        View & Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+
+            <div class="product" data-category="men">
+
+                <img
+                    src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=700&q=85"
+                    alt="Premium Hoodie"
+                >
+
+                <div class="product-info">
+
+                    <h3>Premium Hoodie</h3>
+
+                    <p class="description">
+                        Warm and stylish hoodie
+                        for a modern look.
+                    </p>
+
+                    <div class="price">
+                        ₹1299
+                    </div>
+
+                    <button
+                        class="product-btn"
+                        onclick="openProduct('Premium Hoodie',1299)"
+                    >
+                        View & Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CART -->
+
+    <section class="cart-section" id="cart">
+
+        <div class="cart-box">
+
+            <h2 class="cart-title">
+                🛒 Shopping Cart
+            </h2>
+
+            <div id="cartItems">
+
+                <p>
+                    Your cart is empty.
+                </p>
+
+            </div>
+
+            <div class="cart-summary">
+
+                <div class="total">
+                    Total: ₹<span id="total">0</span>
+                </div>
+
+                <button
+                    class="checkout-btn"
+                    onclick="openCheckout()"
+                >
+                    📲 Proceed to WhatsApp Order
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCT MODAL -->
+
+    <div class="modal" id="productModal">
+
+        <div class="modal-content">
+
+            <span
+                class="close"
+                onclick="closeProduct()"
+            >
+                ×
+            </span>
+
+            <h2 id="modalProductName">
+                Product
+            </h2>
+
+            <p style="margin-bottom:20px;">
+                Price: ₹<span id="modalPrice">0</span>
+            </p>
+
+
+            <!-- SIZE -->
+
+            <div class="form-group">
+
+                <label>
+                    Select Size
+                </label>
+
+                <select id="size">
+
+                    <option value="S">
+                        S
+                    </option>
+
+                    <option value="M" selected>
+                        M
+                    </option>
+
+                    <option value="L">
+                        L
+                    </option>
+
+                    <option value="XL">
+                        XL
+                    </option>
+
+                    <option value="XXL">
+                        XXL
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- COLOR -->
+
+            <div class="form-group">
+
+                <label>
+                    Select Color
+                </label>
+
+                <select id="color">
+
+                    <option value="Black">
+                        Black
+                    </option>
+
+                    <option value="White">
+                        White
+                    </option>
+
+                    <option value="Blue">
+                        Blue
+                    </option>
+
+                    <option value="Red">
+                        Red
+                    </option>
+
+                    <option value="Grey">
+                        Grey
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- QUANTITY -->
+
+            <div class="form-group">
+
+                <label>
+                    Quantity
+                </label>
+
+                <input
+                    type="number"
+                    id="productQuantity"
+                    value="1"
+                    min="1"
+                    max="10"
+                >
+
+            </div>
+
+
+            <button
+                class="product-btn"
+                onclick="addSelectedProduct()"
+            >
+                🛒 Add to Cart
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- CHECKOUT MODAL -->
+
+    <div class="modal" id="checkoutModal">
+
+        <div class="modal-content">
+
+            <span
+                class="close"
+                onclick="closeCheckout()"
+            >
+                ×
+            </span>
+
+            <h2>
+                📦 Customer Details
+            </h2>
+
+
+            <div class="form-group">
+
+                <label>
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Enter your name"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="customerPhone"
+                    placeholder="Enter your phone number"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Delivery Address
+                </label>
+
+                <textarea
+                    id="customerAddress"
+                    placeholder="Enter complete delivery address"
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Payment Method
+                </label>
+
+                <select id="paymentMethod">
+
+                    <option value="Cash on Delivery">
+                        Cash on Delivery
+                    </option>
+
+                    <option value="UPI">
+                        UPI
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                class="place-order"
+                onclick="placeOrder()"
+            >
+                📲 Send Order on WhatsApp
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+        <h2>
+            About FarhanFashion
+        </h2>
+
+        <p>
+            Welcome to FarhanFashion — a modern online
+            clothing store created with passion for
+            fashion and technology. Our goal is to provide
+            stylish products, great quality and a simple
+            shopping experience.
+        </p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 FarhanFashion. All Rights Reserved.
+        </p>
+
+        <p style="margin-top:8px;">
+            Designed & Built by Farhan
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        /* =========================
+           CART
+        ========================= */
+
+        let cart = [];
+
+
+        /* =========================
+           CURRENT PRODUCT
+        ========================= */
+
+        let selectedProduct = "";
+
+        let selectedPrice = 0;
+
+
+        /* =========================
+           OPEN PRODUCT
+        ========================= */
+
+        function openProduct(name, price) {
+
+            selectedProduct = name;
+
+            selectedPrice = price;
+
+            document.getElementById(
+                "modalProductName"
+            ).innerText = name;
+
+            document.getElementById(
+                "modalPrice"
+            ).innerText = price;
+
+            document.getElementById(
+                "productQuantity"
+            ).value = 1;
+
+            document.getElementById(
+                "productModal"
+            ).style.display = "flex";
+
+        }
+
+
+        /* =========================
+           CLOSE PRODUCT
+        ========================= */
+
+        function closeProduct() {
+
+            document.getElementById(
+                "productModal"
+            ).style.display = "none";
+
+        }
+
+
+        /* =========================
+           ADD SELECTED PRODUCT
+        ========================= */
+
+        function addSelectedProduct() {
+
+            let size =
+                document.getElementById("size").value;
+
+            let color =
+                document.getElementById("color").value;
+
+            let quantity =
+                parseInt(
+                    document.getElementById(
+                        "productQuantity"
+                    ).value
+                );
+
+
+            if (quantity < 1) {
+
+                quantity = 1;
+
+            }
+
+
+            cart.push({
+
+                name: selectedProduct,
+
+                price: selectedPrice,
+
+                size: size,
+
+                color: color,
+
+                quantity: quantity
+
+            });
+
+
+            updateCart();
+
+            closeProduct();
+
+
+            alert(
+                selectedProduct +
+                " added to your cart! 🛒"
+            );
+
+
+            document.getElementById(
+                "cart"
+            ).scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+
+        /* =========================
+           UPDATE CART
+        ========================= */
+
+        function updateCart() {
+
+            let cartItems =
+                document.getElementById(
+                    "cartItems"
+                );
+
+            let total =
+                document.getElementById(
+                    "total"
+                );
+
+
+            cartItems.innerHTML = "";
+
+            let totalPrice = 0;
+
+
+            if (cart.length === 0) {
+
+                cartItems.innerHTML =
+                    "<p>Your cart is empty.</p>";
+
+                total.innerText = "0";
+
+                return;
+
+            }
+
+
+            cart.forEach(function(item, index) {
+
+                let itemTotal =
+                    item.price * item.quantity;
+
+
+                totalPrice += itemTotal;
+
+
+                let div =
+                    document.createElement("div");
+
+
+                div.className =
+                    "cart-item";
+
+
+                div.innerHTML = `
+
+                    <div>
+
+                        <div class="cart-item-name">
+                            ${item.name}
+                        </div>
+
+                        <div class="cart-item-details">
+                            Size: ${item.size}
+                            &nbsp; | &nbsp;
+                            Color: ${item.color}
+                            &nbsp; | &nbsp;
+                            ₹${item.price} each
+                        </div>
+
+                    </div>
+
+
+                    <div class="quantity">
+
+                        <button
+                            onclick="changeQuantity(${index}, -1)"
+                        >
+                            −
+                        </button>
+
+                        <span>
+                            ${item.quantity}
+                        </span>
+
+                        <button
+                            onclick="changeQuantity(${index}, 1)"
+                        >
+                            +
+                        </button>
+
+                        <strong>
+                            ₹${itemTotal}
+                        </strong>
+
+                        <button
+                            class="remove"
+                            onclick="removeItem(${index})"
+                        >
+                            Remove
+                        </button>
+
+                    </div>
+
+                `;
+
+
+                cartItems.appendChild(div);
+
+            });
+
+
+            total.innerText =
+                totalPrice;
+
+        }
+
+
+        /* =========================
+           CHANGE QUANTITY
+        ========================= */
+
+        function changeQuantity(index, change) {
+
+            cart[index].quantity += change;
+
+
+            if (cart[index].quantity <= 0) {
+
+                cart.splice(index, 1);
+
+            }
+
+
+            updateCart();
+
+        }
+
+
+        /* =========================
+           REMOVE ITEM
+        ========================= */
+
+        function removeItem(index) {
+
+            cart.splice(index, 1);
+
+            updateCart();
+
+        }
+
+
+        /* =========================
+           FILTER
+        ========================= */
+
+        function filterProducts(category) {
+
+            let products =
+                document.querySelectorAll(
+                    ".product"
+                );
+
+
+            products.forEach(function(product) {
+
+                if (
+                    category === "all" ||
+                    product.dataset.category === category
+                ) {
+
+                    product.style.display =
+                        "block";
+
+                } else {
+
+                    product.style.display =
+                        "none";
+
+                }
+
+            });
+
+        }
+
+
+        /* =========================
+           SEARCH
+        ========================= */
+
+        function searchProducts() {
+
+            let search =
+                document.getElementById(
+                    "searchInput"
+                ).value.toLowerCase();
+
+
+            let products =
+                document.querySelectorAll(
+                    ".product"
+                );
+
+
+            products.forEach(function(product) {
+
+                let name =
+                    product
+                    .querySelector("h3")
+                    .innerText
+                    .toLowerCase();
+
+
+                if (
+                    name.includes(search)
+                ) {
+
+                    product.style.display =
+                        "block";
+
+                } else {
+
+                    product.style.display =
+                        "none";
+
+                }
+
+            });
+
+        }
+
+
+        /* =========================
+           SHOP BUTTON
+        ========================= */
+
+        function goToShop() {
+
+            document.getElementById(
+                "shop"
+            ).scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+
+        /* =========================
+           OPEN CHECKOUT
+        ========================= */
+
+        function openCheckout() {
+
+            if (cart.length === 0) {
+
+                alert(
+                    "Pehle cart me product add karo! 🛒"
+                );
+
+                return;
+
+            }
+
+
+            document.getElementById(
+                "checkoutModal"
+            ).style.display = "flex";
+
+        }
+
+
+        /* =========================
+           CLOSE CHECKOUT
+        ========================= */
+
+        function closeCheckout() {
+
+            document.getElementById(
+                "checkoutModal"
+            ).style.display = "none";
+
+        }
+
+
+        /* =========================
+           PLACE ORDER
+        ========================= */
+
+        function placeOrder() {
+
+            let name =
+                document.getElementById(
+                    "customerName"
+                ).value.trim();
+
+
+            let phone =
+                document.getElementById(
+                    "customerPhone"
+                ).value.trim();
+
+
+            let address =
+                document.getElementById(
+                    "customerAddress"
+                ).value.trim();
+
+
+            let payment =
+                document.getElementById(
+                    "paymentMethod"
+                ).value;
+
+
+            if (
+                name === "" ||
+                phone === "" ||
+                address === ""
+            ) {
+
+                alert(
+                    "Please customer details complete karo."
+                );
+
+                return;
+
+            }
+
+
+            let message =
+                "🛍️ *NEW ORDER - FARHANFASHION*%0A%0A";
+
+
+            message +=
+                "*Customer:* " +
+                name +
+                "%0A";
+
+
+            message +=
+                "*Phone:* " +
+                phone +
+                "%0A";
+
+
+            message +=
+                "*Address:* " +
+                address +
+                "%0A";
+
+
+            message +=
+                "*Payment:* " +
+                payment +
+                "%0A%0A";
+
+
+            message +=
+                "*ORDER DETAILS:*%0A";
+
+
+            let totalPrice = 0;
+
+
+            cart.forEach(function(item, index) {
+
+                let itemTotal =
+                    item.price *
+                    item.quantity;
+
+
+                totalPrice +=
+                    itemTotal;
+
+
+                message +=
+
+                    (index + 1) +
+                    ". " +
+                    item.name +
+                    "%0A" +
+
+                    "   Size: " +
+                    item.size +
+                    "%0A" +
+
+                    "   Color: " +
+                    item.color +
+                    "%0A" +
+
+                    "   Quantity: " +
+                    item.quantity +
+                    "%0A" +
+
+                    "   Price: ₹" +
+                    itemTotal +
+                    "%0A%0A";
+
+            });
+
+
+            message +=
+                "*TOTAL: ₹" +
+                totalPrice +
+                "*%0A%0A";
+
+
+            message +=
+                "Please confirm my order. 🙏";
+
+
+            /*
+                WHATSAPP NUMBER
+                Country code 91 included
+            */
+
+            let phoneNumber =
+                "919529641904";
+
+
+            let whatsappURL =
+                "https://wa.me/" +
+                phoneNumber +
+                "?text=" +
+                message;
+
+
+            window.open(
+                whatsappURL,
+                "_blank"
+            );
+
+        }
+
+
+        /* =========================
+           CLOSE MODALS ON OUTSIDE CLICK
+        ========================= */
+
+        window.onclick =
+            function(event) {
+
+                let productModal =
+                    document.getElementById(
+                        "productModal"
+                    );
+
+                let checkoutModal =
+                    document.getElementById(
+                        "checkoutModal"
+                    );
+
+
+                if (event.target === productModal) {
+
+                    closeProduct();
+
+                }
+
+
+                if (event.target === checkoutModal) {
+
+                    closeCheckout();
+
+                }
+
+            };
+
+    </script>
+
+</body>
+</html>
