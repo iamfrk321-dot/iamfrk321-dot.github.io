@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Farhan | Web Developer</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 20px 7%;
+
+            background: rgba(11, 18, 32, 0.95);
+
+            border-bottom: 1px solid #1e293b;
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+            color: #60a5fa;
+        }
+
+        .links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .links a {
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .links a:hover {
+            color: #60a5fa;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 120px 20px 60px;
+
+            background:
+                radial-gradient(circle at top, #172554, #0f172a 50%);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: 70px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #60a5fa;
+        }
+
+        .hero p {
+            font-size: 22px;
+            color: #cbd5e1;
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 15px 32px;
+
+            background: #2563eb;
+
+            border-radius: 10px;
+
+            font-size: 18px;
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            background: #1d4ed8;
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section {
+            padding: 100px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+
+            font-size: 42px;
+
+            margin-bottom: 55px;
+        }
+
+        .section-title span {
+            color: #60a5fa;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            max-width: 850px;
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+        .about p {
+            font-size: 20px;
+
+            color: #cbd5e1;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills-container {
+            max-width: 1000px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(200px, 1fr));
+
+            gap: 25px;
+        }
+
+        .skill {
+            padding: 35px 20px;
+
+            text-align: center;
+
+            background: #1e293b;
+
+            border-radius: 15px;
+
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-10px);
+
+            background: #263449;
+        }
+
+        .skill-icon {
+            font-size: 45px;
+
+            margin-bottom: 15px;
+        }
+
+        .skill h3 {
+            color: #60a5fa;
+
+            margin-bottom: 8px;
+        }
+
+        .skill p {
+            color: #94a3b8;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects-container {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 25px;
+        }
+
+        .project {
+            padding: 30px;
+
+            background: #1e293b;
+
+            border-radius: 15px;
+
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-icon {
+            font-size: 45px;
+
+            margin-bottom: 15px;
+        }
+
+        .project h3 {
+            color: #60a5fa;
+
+            margin-bottom: 12px;
+        }
+
+        .project p {
+            color: #cbd5e1;
+
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            color: #60a5fa;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           COUNTER
+        ========================= */
+
+        .counter-section {
+            text-align: center;
+
+            background: #0b1220;
+        }
+
+        #count {
+            font-size: 65px;
+
+            color: #60a5fa;
+
+            margin: 20px;
+        }
+
+        .counter-buttons button {
+            padding: 12px 22px;
+
+            margin: 5px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-size: 17px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .counter-buttons button:hover {
+            background: #1d4ed8;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            max-width: 650px;
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+        .contact > p {
+            color: #cbd5e1;
+
+            font-size: 19px;
+
+            margin-bottom: 30px;
+        }
+
+        .contact-box {
+            background: #1e293b;
+
+            padding: 30px;
+
+            border-radius: 15px;
+        }
+
+        .contact-box input,
+        .contact-box textarea {
+            width: 100%;
+
+            padding: 14px;
+
+            margin-bottom: 15px;
+
+            border: 1px solid #334155;
+
+            border-radius: 8px;
+
+            background: #0f172a;
+
+            color: white;
+
+            font-size: 16px;
+
+            outline: none;
+        }
+
+        .contact-box input:focus,
+        .contact-box textarea:focus {
+            border-color: #60a5fa;
+        }
+
+        .contact-box textarea {
+            height: 130px;
+
+            resize: none;
+        }
+
+        .contact-box button {
+            border: none;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            padding: 30px;
+
+            background: #020617;
+
+            color: #94a3b8;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 15px 20px;
+
+                flex-direction: column;
+
+                gap: 12px;
+            }
+
+            .logo {
+                font-size: 25px;
+            }
+
+            .links {
+                gap: 14px;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+            .links a {
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 34px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <nav>
+
+        <div class="logo">
+            Farhan
+        </div>
+
+        <div class="links">
+
+            <a href="#home">Home</a>
+
+            <a href="#about">About</a>
+
+            <a href="#skills">Skills</a>
+
+            <a href="#projects">Projects</a>
+
+            <a href="#contact">Contact</a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HOME
+    ========================== -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>
+                Hello, I'm <span>Farhan!</span> 👋
+            </h1>
+
+            <p>
+                Student • Web Developer • Technology Enthusiast
+            </p>
+
+            <a href="#projects" class="btn">
+                View My Projects
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section id="about">
+
+        <h2 class="section-title">
+            About <span>Me</span>
+        </h2>
+
+        <div class="about">
+
+            <p>
+                Hi! I'm Farhan, a student who loves technology
+                and learning new skills. I'm currently learning
+                HTML, CSS and JavaScript and building my own
+                projects to improve my web development skills.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SKILLS
+    ========================== -->
+
+    <section id="skills">
+
+        <h2 class="section-title">
+            My <span>Skills</span>
+        </h2>
+
+        <div class="skills-container">
+
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    🌐
+                </div>
+
+                <h3>HTML</h3>
+
+                <p>
+                    Website structure
+                </p>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    🎨
+                </div>
+
+                <h3>CSS</h3>
+
+                <p>
+                    Website design
+                </p>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    ⚡
+                </div>
+
+                <h3>JavaScript</h3>
+
+                <p>
+                    Website interaction
+                </p>
+
+            </div>
+
+
+            <div class="skill">
+
+                <div class="skill-icon">
+                    🤖
+                </div>
+
+                <h3>AI</h3>
+
+                <p>
+                    Learning AI tools
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section id="projects">
+
+        <h2 class="section-title">
+            My <span>Projects</span>
+        </h2>
+
+        <div class="projects-container">
+
+
+            <div class="project">
+
+                <div class="project-icon">
+                    🌐
+                </div>
+
+                <h3>
+                    Personal Website
+                </h3>
+
+                <p>
+                    My first personal website built using
+                    HTML and CSS.
+                </p>
+
+                <a href="#" class="project-link">
+                    View Project →
+                </a>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-icon">
+                    🔢
+                </div>
+
+                <h3>
+                    JavaScript Counter
+                </h3>
+
+                <p>
+                    An interactive counter created using
+                    JavaScript.
+                </p>
+
+                <a href="#" class="project-link">
+                    View Project →
+                </a>
+
+            </div>
+
+
+            <div class="project">
+
+                <div class="project-icon">
+                    🚀
+                </div>
+
+                <h3>
+                    Future Project
+                </h3>
+
+                <p>
+                    More interesting projects coming soon.
+                </p>
+
+                <a href="#" class="project-link">
+                    Coming Soon →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         COUNTER
+    ========================== -->
+
+    <section class="counter-section">
+
+        <h2 class="section-title">
+            JavaScript <span>Counter</span>
+        </h2>
+
+        <div class="counter">
+
+            <h2 id="count">
+                0
+            </h2>
+
+            <div class="counter-buttons">
+
+                <button onclick="decrease()">
+                    -1
+                </button>
+
+                <button onclick="resetCounter()">
+                    Reset
+                </button>
+
+                <button onclick="increase()">
+                    +1
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact">
+
+        <h2 class="section-title">
+            Contact <span>Me</span>
+        </h2>
+
+        <div class="contact">
+
+            <p>
+                Have a question or want to work together?
+                Send me a message.
+            </p>
+
+            <div class="contact-box">
+
+                <input
+                    type="text"
+                    placeholder="Your Name"
+                >
+
+                <input
+                    type="email"
+                    placeholder="Your Email"
+                >
+
+                <textarea
+                    placeholder="Your Message"
+                ></textarea>
+
+                <button
+                    class="btn"
+                    onclick="sendMessage()"
+                >
+                    Send Message
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Farhan. Made with ❤️ and code.
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        let count = 0;
+
+
+        function increase() {
+
+            count = count + 1;
+
+            document.getElementById("count").innerHTML = count;
+
+        }
+
+
+        function decrease() {
+
+            count = count - 1;
+
+            document.getElementById("count").innerHTML = count;
+
+        }
+
+
+        function resetCounter() {
+
+            count = 0;
+
+            document.getElementById("count").innerHTML = count;
+
+        }
+
+
+        function sendMessage() {
+
+            alert(
+                "Thanks for your message, Farhan! 👋"
+            );
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
