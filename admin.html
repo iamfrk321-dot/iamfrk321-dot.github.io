@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FARHANFASHION — Admin Dashboard</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#070b14;
+    color:#fff;
+}
+
+button,
+input{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 5%;
+    background:#0d1320;
+    border-bottom:1px solid #202938;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    font-size:20px;
+}
+
+.brand-icon{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#d4af37;
+    color:#111;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:900;
+}
+
+.logout-btn{
+    padding:10px 16px;
+    border:1px solid #303747;
+    background:#151d2b;
+    color:#fff;
+    border-radius:9px;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:30px auto;
+}
+
+.login-card{
+    max-width:430px;
+    margin:80px auto;
+    padding:30px;
+    background:#101624;
+    border:1px solid #202938;
+    border-radius:18px;
+}
+
+.login-card h1{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.login-card p{
+    text-align:center;
+    color:#8d98aa;
+    margin-bottom:25px;
+}
+
+.input{
+    width:100%;
+    padding:14px;
+    margin-bottom:13px;
+    border-radius:10px;
+    border:1px solid #303747;
+    background:#151d2b;
+    color:white;
+    outline:none;
+}
+
+.login-btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#d4af37;
+    color:#111;
+    font-weight:bold;
+}
+
+.google-btn{
+    width:100%;
+    padding:14px;
+    margin-top:12px;
+    border-radius:10px;
+    border:1px solid #303747;
+    background:white;
+    color:#111;
+    font-weight:bold;
+}
+
+.error{
+    min-height:20px;
+    color:#ff667d;
+    text-align:center;
+    font-size:13px;
+    margin-bottom:10px;
+}
+
+.admin-panel{
+    display:none;
+}
+
+.welcome{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.welcome p{
+    color:#8993a5;
+    margin-top:6px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-bottom:30px;
+}
+
+.stat{
+    background:#101624;
+    border:1px solid #202938;
+    border-radius:15px;
+    padding:20px;
+}
+
+.stat-title{
+    color:#8993a5;
+    font-size:13px;
+    margin-bottom:10px;
+}
+
+.stat-value{
+    font-size:28px;
+    font-weight:bold;
+    color:#d4af37;
+}
+
+.orders-card{
+    background:#101624;
+    border:1px solid #202938;
+    border-radius:15px;
+    overflow:hidden;
+}
+
+.orders-header{
+    padding:20px;
+    border-bottom:1px solid #202938;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.refresh-btn{
+    padding:9px 14px;
+    border:1px solid #303747;
+    background:#151d2b;
+    color:white;
+    border-radius:8px;
+}
+
+.table-wrap{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,
+td{
+    padding:14px;
+    text-align:left;
+    border-bottom:1px solid #202938;
+    font-size:13px;
+}
+
+th{
+    color:#d4af37;
+    background:#0c121e;
+}
+
+td{
+    color:#d7dce5;
+}
+
+.status{
+    padding:7px 10px;
+    border-radius:7px;
+    border:1px solid #303747;
+    background:#151d2b;
+    color:white;
+}
+
+.status-select{
+    padding:8px;
+    background:#151d2b;
+    color:white;
+    border:1px solid #303747;
+    border-radius:7px;
+}
+
+.order-btn{
+    padding:8px 11px;
+    border:1px solid #303747;
+    background:#151d2b;
+    color:white;
+    border-radius:7px;
+}
+
+.no-orders{
+    padding:40px;
+    text-align:center;
+    color:#8993a5;
+}
+
+.modal-bg{
+    position:fixed;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    background:rgba(0,0,0,.78);
+    z-index:3000;
+    padding:20px;
+}
+
+.modal-bg.show{
+    display:flex;
+}
+
+.modal{
+    width:min(700px,100%);
+    max-height:90vh;
+    overflow:auto;
+    background:#101624;
+    border:1px solid #303747;
+    border-radius:18px;
+    padding:25px;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    right:15px;
+    top:15px;
+    width:35px;
+    height:35px;
+    border:none;
+    border-radius:50%;
+    background:#202938;
+    color:#fff;
+    font-size:19px;
+}
+
+.detail-row{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:10px 0;
+    border-bottom:1px solid #202938;
+}
+
+.detail-row span:first-child{
+    color:#8993a5;
+}
+
+.item-box{
+    padding:12px;
+    margin-top:10px;
+    background:#151d2b;
+    border-radius:10px;
+}
+
+.toast{
+    position:fixed;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%) translateY(100px);
+    background:#d4af37;
+    color:#111;
+    padding:13px 20px;
+    border-radius:10px;
+    font-weight:bold;
+    transition:.3s;
+    z-index:5000;
+}
+
+.toast.show{
+    transform:translateX(-50%) translateY(0);
+}
+
+@media(max-width:900px){
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .welcome{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            FF
+        </div>
+
+        FARHANFASHION ADMIN
+
+    </div>
+
+    <button
+        id="logoutBtn"
+        class="logout-btn"
+        style="display:none"
+        onclick="logoutAdmin()">
+
+        Logout
+
+    </button>
+
+</div>
+
+
+<!-- LOGIN -->
+
+<div id="loginSection" class="login-card">
+
+    <h1>Admin Login 👑</h1>
+
+    <p>
+        FARHANFASHION Admin Dashboard
+    </p>
+
+
+    <input
+        id="email"
+        class="input"
+        type="email"
+        placeholder="Admin Email">
+
+
+    <input
+        id="password"
+        class="input"
+        type="password"
+        placeholder="Password">
+
+
+    <div
+        id="loginError"
+        class="error">
+    </div>
+
+
+    <button
+        class="login-btn"
+        onclick="adminLogin()">
+
+        Login
+
+    </button>
+
+
+    <button
+        class="google-btn"
+        onclick="googleAdminLogin()">
+
+        🔵 Continue with Google
+
+    </button>
+
+</div>
+
+
+<!-- ADMIN PANEL -->
+
+<div id="adminPanel" class="admin-panel">
+
+    <div class="container">
+
+        <div class="welcome">
+
+            <div>
+
+                <h1>Dashboard 👑</h1>
+
+                <p id="adminEmail"></p>
+
+            </div>
+
+        </div>
+
+
+        <!-- STATS -->
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <div class="stat-title">
+                    Total Orders
+                </div>
+
+                <div
+                    class="stat-value"
+                    id="totalOrders">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-title">
+                    Total Sales
+                </div>
+
+                <div
+                    class="stat-value"
+                    id="totalSales">
+                    ₹0
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-title">
+                    Pending
+                </div>
+
+                <div
+                    class="stat-value"
+                    id="pendingOrders">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-title">
+                    Delivered
+                </div>
+
+                <div
+                    class="stat-value"
+                    id="deliveredOrders">
+                    0
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ORDERS -->
+
+        <div class="orders-card">
+
+            <div class="orders-header">
+
+                <h2>
+                    Orders 📦
+                </h2>
+
+                <button
+                    class="refresh-btn"
+                    onclick="loadOrders()">
+
+                    🔄 Refresh
+
+                </button>
+
+            </div>
+
+
+            <div class="table-wrap">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Order ID</th>
+
+                            <th>Customer</th>
+
+                            <th>Total</th>
+
+                            <th>Payment</th>
+
+                            <th>Status</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="ordersTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ORDER DETAILS MODAL -->
+
+<div
+    id="orderModal"
+    class="modal-bg">
+
+    <div class="modal">
+
+        <button
+            class="close"
+            onclick="closeOrderModal()">
+
+            ×
+
+        </button>
+
+
+        <h2>
+            Order Details 📦
+        </h2>
+
+
+        <div
+            id="orderDetails"
+            style="margin-top:20px">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div
+    id="toast"
+    class="toast">
+
+    Done!
+
+</div>
+
+
+<script type="module">
+
+
+/* =========================
+   FIREBASE
+========================= */
+
+import {
+
+    initializeApp
+
+}
+
+from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+
+
+import {
+
+    getAuth,
+
+    signInWithEmailAndPassword,
+
+    signInWithPopup,
+
+    GoogleAuthProvider,
+
+    onAuthStateChanged,
+
+    signOut
+
+}
+
+from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+
+
+import {
+
+    getFirestore,
+
+    collection,
+
+    getDocs,
+
+    doc,
+
+    getDoc,
+
+    updateDoc
+
+}
+
+from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyDgflsn-NCjglo72qa-Rwe_qspjBCIs_WW",
+
+    authDomain:
+        "farhanfashion-268e8.firebaseapp.com",
+
+    projectId:
+        "farhanfashion-268e8",
+
+    storageBucket:
+        "farhanfashion-268e8.firebasestorage.app",
+
+    messagingSenderId:
+        "593651964207",
+
+    appId:
+        "1:593651964207:web:c5a15e5dd055ce8925a9da",
+
+    measurementId:
+        "G-SP8NYB7WWD"
+
+};
+
+
+const app =
+    initializeApp(firebaseConfig);
+
+
+const auth =
+    getAuth(app);
+
+
+const db =
+    getFirestore(app);
+
+
+const googleProvider =
+    new GoogleAuthProvider();
+
+
+console.log(
+    "🔥 Admin Firebase connected!"
+);
+
+
+/* =========================
+   ADMIN LOGIN
+========================= */
+
+window.adminLogin = async function(){
+
+    const email =
+        document
+        .getElementById("email")
+        .value
+        .trim();
+
+
+    const password =
+        document
+        .getElementById("password")
+        .value;
+
+
+    const errorBox =
+        document
+        .getElementById("loginError");
+
+
+    errorBox.innerText = "";
+
+
+    if(!email || !password){
+
+        errorBox.innerText =
+            "Email aur password bharo.";
+
+        return;
+
+    }
+
+
+    try{
+
+        await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+    }catch(error){
+
+        console.error(error);
+
+        errorBox.innerText =
+            getError(error.code);
+
+    }
+
+};
+
+
+/* =========================
+   GOOGLE LOGIN
+========================= */
+
+window.googleAdminLogin = async function(){
+
+    const errorBox =
+        document
+        .getElementById("loginError");
+
+
+    errorBox.innerText = "";
+
+
+    try{
+
+        await signInWithPopup(
+            auth,
+            googleProvider
+        );
+
+    }catch(error){
+
+        console.error(error);
+
+        errorBox.innerText =
+            getError(error.code);
+
+    }
+
+};
+
+
+/* =========================
+   CHECK ADMIN
+========================= */
+
+async function checkAdmin(user){
+
+    const adminRef =
+        doc(
+            db,
+            "admins",
+            user.uid
+        );
+
+
+    const adminSnap =
+        await getDoc(adminRef);
+
+
+    if(
+        adminSnap.exists() &&
+        adminSnap.data().role === "admin"
+    ){
+
+        return true;
+
+    }
+
+
+    return false;
+
+}
+
+
+/* =========================
+   AUTH STATE
+========================= */
+
+onAuthStateChanged(
+    auth,
+    async user => {
+
+        if(!user){
+
+            showLogin();
+
+            return;
+
+        }
+
+
+        try{
+
+            const isAdmin =
+                await checkAdmin(user);
+
+
+            if(!isAdmin){
+
+                await signOut(auth);
+
+                document
+                .getElementById("loginError")
+                .innerText =
+                    "❌ Ye account admin nahi hai.";
+
+                showLogin();
+
+                return;
+
+            }
+
+
+            document
+            .getElementById("loginSection")
+            .style.display = "none";
+
+
+            document
+            .getElementById("adminPanel")
+            .style.display = "block";
+
+
+            document
+            .getElementById("logoutBtn")
+            .style.display = "block";
+
+
+            document
+            .getElementById("adminEmail")
+            .innerText =
+                "Logged in as: " +
+                (user.email || "Admin");
+
+
+            await loadOrders();
+
+        }catch(error){
+
+            console.error(error);
+
+            showLogin();
+
+        }
+
+    }
+
+);
+
+
+/* =========================
+   LOAD ORDERS
+========================= */
+
+window.loadOrders = async function(){
+
+    const table =
+        document
+        .getElementById("ordersTable");
+
+
+    table.innerHTML = `
+
+        <tr>
+
+            <td
+                colspan="6"
+                style="text-align:center">
+
+                Loading orders...
+
+            </td>
+
+        </tr>
+
+    `;
+
+
+    try{
+
+        const snapshot =
+            await getDocs(
+                collection(db,"orders")
+            );
+
+
+        const orders = [];
+
+
+        snapshot.forEach(docSnap => {
+
+            orders.push({
+
+                id: docSnap.id,
+
+                ...docSnap.data()
+
+            });
+
+        });
+
+
+        orders.sort(
+            (a,b) => {
+
+                const aTime =
+                    a.createdAt?.seconds || 0;
+
+                const bTime =
+                    b.createdAt?.seconds || 0;
+
+                return bTime - aTime;
+
+            }
+        );
+
+
+        updateStats(orders);
+
+
+        table.innerHTML = "";
+
+
+        if(!orders.length){
+
+            table.innerHTML = `
+
+                <tr>
+
+                    <td
+                        colspan="6"
+                        class="no-orders">
+
+                        No orders found.
+
+                    </td>
+
+                </tr>
+
+            `;
+
+            return;
+
+        }
+
+
+        orders.forEach(order => {
+
+            const status =
+                order.status ||
+                "Order Placed";
+
+
+            table.innerHTML += `
+
+                <tr>
+
+                    <td>
+                        ${escapeHtml(
+                            order.id
+                        ).slice(0,12)}...
+                    </td>
+
+                    <td>
+                        ${escapeHtml(
+                            order.customerName || "—"
+                        )}
+                    </td>
+
+                    <td>
+                        ₹${Number(
+                            order.total || 0
+                        )}
+                    </td>
+
+                    <td>
+                        ${escapeHtml(
+                            order.paymentMethod || "—"
+                        )}
+                    </td>
+
+                    <td>
+
+                        <select
+                            class="status-select"
+                            onchange="changeOrderStatus(
+                                '${order.id}',
+                                this.value
+                            )">
+
+                            ${statusOption(
+                                "Order Placed",
+                                status
+                            )}
+
+                            ${statusOption(
+                                "Confirmed",
+                                status
+                            )}
+
+                            ${statusOption(
+                                "Packed",
+                                status
+                            )}
+
+                            ${statusOption(
+                                "Shipped",
+                                status
+                            )}
+
+                            ${statusOption(
+                                "Delivered",
+                                status
+                            )}
+
+                            ${statusOption(
+                                "Cancelled",
+                                status
+                            )}
+
+                        </select>
+
+                    </td>
+
+                    <td>
+
+                        <button
+                            class="order-btn"
+                            onclick="viewOrder(
+                                '${order.id}'
+                            )">
+
+                            View
+
+                        </button>
+
+                    </td>
+
+                </tr>
+
+            `;
+
+        });
+
+
+        window.allOrders = orders;
+
+
+    }catch(error){
+
+        console.error(error);
+
+
+        table.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="6"
+                    class="no-orders">
+
+                    ❌ Orders load nahi hue.
+
+                    <br><br>
+
+                    ${escapeHtml(
+                        error.message
+                    )}
+
+                </td>
+
+            </tr>
+
+        `;
+
+    }
+
+};
+
+
+/* =========================
+   CHANGE STATUS
+========================= */
+
+window.changeOrderStatus =
+async function(orderId,newStatus){
+
+    try{
+
+        await updateDoc(
+
+            doc(
+                db,
+                "orders",
+                orderId
+            ),
+
+            {
+                status:newStatus
+            }
+
+        );
+
+
+        showToast(
+            "✅ Status updated!"
+        );
+
+
+        await loadOrders();
+
+
+    }catch(error){
+
+        console.error(error);
+
+        showToast(
+            "❌ Status update failed"
+        );
+
+    }
+
+};
+
+
+/* =========================
+   VIEW ORDER
+========================= */
+
+window.viewOrder =
+function(orderId){
+
+    const order =
+        window.allOrders.find(
+            item => item.id === orderId
+        );
+
+
+    if(!order) return;
+
+
+    let itemsHtml = "";
+
+
+    if(
+        Array.isArray(order.items)
+    ){
+
+        order.items.forEach(item => {
+
+            itemsHtml += `
+
+                <div class="item-box">
+
+                    <strong>
+                        ${escapeHtml(
+                            item.name || "Product"
+                        )}
+                    </strong>
+
+                    <div style="margin-top:6px;color:#8993a5">
+
+                        Quantity:
+                        ${Number(
+                            item.quantity || 0
+                        )}
+
+                        &nbsp; | &nbsp;
+
+                        Price:
+                        ₹${Number(
+                            item.price || 0
+                        )}
+
+                    </div>
+
+                </div>
+
+            `;
+
+        });
+
+    }
+
+
+    const created =
+        order.createdAt?.toDate
+        ? order.createdAt.toDate()
+        : null;
+
+
+    document
+    .getElementById("orderDetails")
+    .innerHTML = `
+
+        <div class="detail-row">
+
+            <span>Order ID</span>
+
+            <strong>
+                ${escapeHtml(order.id)}
+            </strong>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <span>Customer</span>
+
+            <strong>
+                ${escapeHtml(
+                    order.customerName || "—"
+                )}
+            </strong>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <span>Email</span>
+
+            <strong>
+                ${escapeHtml(
+                    order.customerEmail || "—"
+                )}
+            </strong>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <span>Phone</span>
+
+            <strong>
+                ${escapeHtml(
+                    order.customerPhone || "—"
+                )}
+            </strong>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <span>Address</span>
+
+            <strong>
+                ${escapeHtml(
+                    order.address || "—"
+                )}
+            </strong>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <span>Payment</span>
+
+            <strong>
+                ${escapeHtml(
+                    order.paymentMethod || "—"
+                )}
+            </strong>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <span>Status</span>
+
+            <strong>
+                ${escapeHtml(
+                    order.status || "Order Placed"
+                )}
+            </strong>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <span>Total</span>
+
+            <strong>
+                ₹${Number(
+                    order.total || 0
+                )}
+            </strong>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <span>Date</span>
+
+            <strong>
+                ${
+                    created
+                    ? created.toLocaleString()
+                    : "—"
+                }
+            </strong>
+
+        </div>
+
+
+        <h3 style="margin-top:25px">
+            Products
+        </h3>
+
+
+        ${itemsHtml || "<p style='color:#8993a5;margin-top:12px'>No item details.</p>"}
+
+    `;
+
+
+    document
+    .getElementById("orderModal")
+    .classList.add("show");
+
+};
+
+
+/* =========================
+   CLOSE MODAL
+========================= */
+
+window.closeOrderModal =
+function(){
+
+    document
+    .getElementById("orderModal")
+    .classList.remove("show");
+
+};
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+window.logoutAdmin =
+async function(){
+
+    await signOut(auth);
+
+};
+
+
+/* =========================
+   SHOW LOGIN
+========================= */
+
+function showLogin(){
+
+    document
+    .getElementById("loginSection")
+    .style.display = "block";
+
+
+    document
+    .getElementById("adminPanel")
+    .style.display = "none";
+
+
+    document
+    .getElementById("logoutBtn")
+    .style.display = "none";
+
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+function updateStats(orders){
+
+    let sales = 0;
+
+    let pending = 0;
+
+    let delivered = 0;
+
+
+    orders.forEach(order => {
+
+        sales +=
+            Number(order.total || 0);
+
+
+        const status =
+            order.status || "Order Placed";
+
+
+        if(
+            status === "Order Placed" ||
+            status === "Confirmed"
+        ){
+
+            pending++;
+
+        }
+
+
+        if(status === "Delivered"){
+
+            delivered++;
+
+        }
+
+    });
+
+
+    document
+    .getElementById("totalOrders")
+    .innerText = orders.length;
+
+
+    document
+    .getElementById("totalSales")
+    .innerText =
+        "₹" + sales;
+
+
+    document
+    .getElementById("pendingOrders")
+    .innerText = pending;
+
+
+    document
+    .getElementById("deliveredOrders")
+    .innerText =
+        delivered;
+
+}
+
+
+/* =========================
+   HELPERS
+========================= */
+
+function statusOption(value,current){
+
+    return `
+
+        <option
+            value="${value}"
+            ${value === current ? "selected" : ""}>
+
+            ${value}
+
+        </option>
+
+    `;
+
+}
+
+
+function escapeHtml(value){
+
+    return String(value)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+
+}
+
+
+function getError(code){
+
+    switch(code){
+
+        case "auth/invalid-credential":
+            return "Email ya password galat hai.";
+
+        case "auth/invalid-email":
+            return "Email sahi nahi hai.";
+
+        case "auth/too-many-requests":
+            return "Bahut attempts ho gaye. Thodi der baad try karo.";
+
+        case "auth/popup-closed-by-user":
+            return "Google login window close ho gayi.";
+
+        case "auth/popup-blocked":
+            return "Browser ne popup block kar diya.";
+
+        default:
+            return "Login mein problem aayi. Dobara try karo.";
+
+    }
+
+}
+
+
+function showToast(text){
+
+    const toast =
+        document.getElementById("toast");
+
+
+    toast.innerText = text;
+
+    toast.classList.add("show");
+
+
+    setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    },2200);
+
+}
+
+</script>
+
+</body>
+</html>
