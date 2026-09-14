@@ -10,35 +10,14 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
+html{scroll-behavior:smooth}
+body{background:#070b14;color:#fff}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
 
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#070b14;
-    color:#fff;
-}
-
-a{
-    color:inherit;
-    text-decoration:none;
-}
-
-button,
-select,
-input,
-textarea{
-    font:inherit;
-}
-
-button{
-    cursor:pointer;
-}
-
-/* NAVBAR */
 .navbar{
     position:sticky;
     top:0;
@@ -46,8 +25,8 @@ button{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:16px 6%;
-    background:rgba(7,11,20,.94);
+    padding:15px 6%;
+    background:rgba(7,11,20,.95);
     backdrop-filter:blur(15px);
     border-bottom:1px solid rgba(255,255,255,.08);
 }
@@ -75,22 +54,20 @@ button{
 
 .nav-links{
     display:flex;
-    gap:25px;
+    gap:24px;
 }
 
 .nav-links a{
     color:#ddd;
     font-size:14px;
-    transition:.3s;
 }
 
-.nav-links a:hover{
-    color:#d4af37;
-}
+.nav-links a:hover{color:#d4af37}
 
 .nav-actions{
     display:flex;
-    gap:10px;
+    gap:9px;
+    align-items:center;
 }
 
 .icon-btn{
@@ -119,7 +96,14 @@ button{
     font-weight:bold;
 }
 
-/* HERO */
+.account-btn{
+    padding:11px 14px;
+    border:1px solid #303747;
+    border-radius:10px;
+    background:#111827;
+    color:#fff;
+}
+
 .hero{
     min-height:600px;
     display:flex;
@@ -132,10 +116,7 @@ button{
     #070b14;
 }
 
-.hero-content{
-    max-width:850px;
-}
-
+.hero-content{max-width:850px}
 .hero-tag{
     display:inline-block;
     padding:8px 15px;
@@ -145,17 +126,12 @@ button{
     margin-bottom:20px;
     font-size:13px;
 }
-
 .hero h1{
     font-size:clamp(45px,8vw,90px);
     line-height:1;
     margin-bottom:20px;
 }
-
-.hero h1 span{
-    color:#d4af37;
-}
-
+.hero h1 span{color:#d4af37}
 .hero p{
     color:#aeb6c5;
     max-width:650px;
@@ -163,7 +139,6 @@ button{
     line-height:1.7;
     font-size:17px;
 }
-
 .hero-buttons{
     margin-top:30px;
     display:flex;
@@ -177,25 +152,15 @@ button{
     border-radius:12px;
     border:none;
     font-weight:bold;
-    transition:.3s;
 }
-
-.btn-gold{
-    background:#d4af37;
-    color:#111;
-}
-
+.btn-gold{background:#d4af37;color:#111}
 .btn-dark{
     background:#111827;
     color:#fff;
     border:1px solid #303747;
 }
+.btn:hover{transform:translateY(-2px)}
 
-.btn:hover{
-    transform:translateY(-2px);
-}
-
-/* FEATURES */
 .features{
     display:grid;
     grid-template-columns:repeat(4,1fr);
@@ -203,54 +168,22 @@ button{
     padding:30px 6%;
     background:#0b101b;
 }
+.feature{text-align:center;padding:18px}
+.feature-icon{font-size:27px;margin-bottom:8px}
+.feature h3{font-size:15px}
+.feature p{color:#8993a5;font-size:12px;margin-top:5px}
 
-.feature{
-    text-align:center;
-    padding:18px;
-}
+.section{padding:75px 6%}
+.section-title{text-align:center;margin-bottom:40px}
+.section-title h2{font-size:38px}
+.section-title p{color:#8993a5;margin-top:10px}
 
-.feature-icon{
-    font-size:27px;
-    margin-bottom:8px;
-}
-
-.feature h3{
-    font-size:15px;
-}
-
-.feature p{
-    color:#8993a5;
-    font-size:12px;
-    margin-top:5px;
-}
-
-/* SECTION */
-.section{
-    padding:75px 6%;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:40px;
-}
-
-.section-title h2{
-    font-size:38px;
-}
-
-.section-title p{
-    color:#8993a5;
-    margin-top:10px;
-}
-
-/* SEARCH */
 .shop-tools{
     display:flex;
     gap:12px;
     flex-wrap:wrap;
     margin-bottom:30px;
 }
-
 .search-box{
     flex:1;
     min-width:220px;
@@ -261,7 +194,6 @@ button{
     border-radius:12px;
     outline:none;
 }
-
 .shop-tools select{
     padding:14px;
     background:#111827;
@@ -270,14 +202,12 @@ button{
     border-radius:12px;
 }
 
-/* FILTERS */
 .filters{
     display:flex;
     gap:10px;
     flex-wrap:wrap;
     margin-bottom:30px;
 }
-
 .filter-btn{
     padding:10px 17px;
     border-radius:30px;
@@ -285,20 +215,16 @@ button{
     background:#111827;
     color:#ddd;
 }
-
-.filter-btn.active,
-.filter-btn:hover{
+.filter-btn.active,.filter-btn:hover{
     background:#d4af37;
     color:#111;
 }
 
-/* PRODUCTS */
 .products{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:22px;
 }
-
 .product{
     background:#101624;
     border:1px solid #202938;
@@ -307,30 +233,23 @@ button{
     transition:.3s;
     position:relative;
 }
-
 .product:hover{
     transform:translateY(-6px);
     border-color:#5b4d1d;
 }
-
 .product-image{
     height:300px;
     position:relative;
     overflow:hidden;
     background:#161d2a;
 }
-
 .product-image img{
     width:100%;
     height:100%;
     object-fit:cover;
     transition:.5s;
 }
-
-.product:hover img{
-    transform:scale(1.06);
-}
-
+.product:hover img{transform:scale(1.06)}
 .product-badge{
     position:absolute;
     top:12px;
@@ -342,7 +261,6 @@ button{
     font-size:11px;
     font-weight:bold;
 }
-
 .wishlist{
     position:absolute;
     top:12px;
@@ -355,43 +273,26 @@ button{
     color:white;
     font-size:18px;
 }
-
-.wishlist.active{
-    color:#ff5d7d;
-}
-
-.product-info{
-    padding:17px;
-}
-
-.product-info h3{
-    font-size:17px;
-}
-
+.wishlist.active{color:#ff5d7d}
+.product-info{padding:17px}
+.product-info h3{font-size:17px}
 .rating{
     color:#d4af37;
     font-size:13px;
     margin:8px 0;
 }
-
-.price{
-    font-size:20px;
-    font-weight:bold;
-}
-
+.price{font-size:20px;font-weight:bold}
 .old-price{
     color:#697386;
     text-decoration:line-through;
     font-size:13px;
     margin-left:7px;
 }
-
 .product-actions{
     display:flex;
     gap:8px;
     margin-top:15px;
 }
-
 .small-btn{
     flex:1;
     padding:11px;
@@ -400,7 +301,6 @@ button{
     background:#151d2b;
     color:#fff;
 }
-
 .small-btn.gold{
     background:#d4af37;
     color:#111;
@@ -408,7 +308,6 @@ button{
     font-weight:bold;
 }
 
-/* MODALS */
 .modal-bg{
     position:fixed;
     inset:0;
@@ -419,11 +318,7 @@ button{
     justify-content:center;
     padding:20px;
 }
-
-.modal-bg.show{
-    display:flex;
-}
-
+.modal-bg.show{display:flex}
 .modal{
     width:min(850px,100%);
     max-height:90vh;
@@ -434,7 +329,6 @@ button{
     padding:25px;
     position:relative;
 }
-
 .close{
     position:absolute;
     right:18px;
@@ -448,48 +342,30 @@ button{
     font-size:20px;
 }
 
-/* PRODUCT DETAIL */
 .detail-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:30px;
 }
-
 .detail-image{
     width:100%;
     height:430px;
     object-fit:cover;
     border-radius:15px;
 }
-
-.detail-info h2{
-    font-size:32px;
-    margin-bottom:10px;
-}
-
+.detail-info h2{font-size:32px;margin-bottom:10px}
 .detail-description{
     color:#9da6b6;
     line-height:1.7;
     margin:15px 0;
 }
-
 .detail-price{
     font-size:28px;
     font-weight:bold;
     margin:15px 0;
 }
-
-.option-title{
-    margin:20px 0 10px;
-    font-weight:bold;
-}
-
-.options{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-}
-
+.option-title{margin:20px 0 10px;font-weight:bold}
+.options{display:flex;gap:8px;flex-wrap:wrap}
 .option{
     padding:9px 14px;
     border:1px solid #3a4352;
@@ -497,20 +373,17 @@ button{
     color:#fff;
     border-radius:8px;
 }
-
 .option.selected{
     border-color:#d4af37;
     background:#d4af37;
     color:#111;
 }
-
 .qty{
     display:flex;
     align-items:center;
     gap:15px;
     margin:20px 0;
 }
-
 .qty button{
     width:35px;
     height:35px;
@@ -520,7 +393,6 @@ button{
     color:#fff;
 }
 
-/* CART DRAWER */
 .drawer{
     position:fixed;
     top:0;
@@ -534,18 +406,13 @@ button{
     padding:25px;
     overflow:auto;
 }
-
-.drawer.show{
-    right:0;
-}
-
+.drawer.show{right:0}
 .drawer-header{
     display:flex;
     justify-content:space-between;
     align-items:center;
     margin-bottom:25px;
 }
-
 .cart-item{
     display:grid;
     grid-template-columns:70px 1fr auto;
@@ -554,30 +421,20 @@ button{
     padding:13px 0;
     border-bottom:1px solid #202938;
 }
-
 .cart-item img{
     width:70px;
     height:75px;
     object-fit:cover;
     border-radius:8px;
 }
-
-.cart-item h4{
-    font-size:14px;
-}
-
-.cart-item p{
-    color:#d4af37;
-    margin-top:5px;
-}
-
+.cart-item h4{font-size:14px}
+.cart-item p{color:#d4af37;margin-top:5px}
 .cart-controls{
     display:flex;
     align-items:center;
     gap:5px;
     margin-top:7px;
 }
-
 .cart-controls button{
     width:25px;
     height:25px;
@@ -586,53 +443,40 @@ button{
     background:#202938;
     color:white;
 }
-
 .remove{
-    background:none !important;
-    color:#ff667d !important;
+    background:none!important;
+    color:#ff667d!important;
 }
-
 .summary{
     margin-top:25px;
     padding-top:20px;
     border-top:1px solid #303747;
 }
-
 .summary-row{
     display:flex;
     justify-content:space-between;
     margin:10px 0;
     color:#aab3c2;
 }
-
 .summary-row.total{
     color:#fff;
     font-size:20px;
     font-weight:bold;
 }
+.discount{color:#55d98b!important}
 
-.discount{
-    color:#55d98b !important;
-}
-
-/* CHECKOUT */
 .checkout-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:25px;
 }
-
-.form-group{
-    margin-bottom:15px;
-}
-
+.form-group{margin-bottom:15px}
 .form-group label{
     display:block;
     margin-bottom:7px;
     color:#aeb6c5;
     font-size:13px;
 }
-
 .form-group input,
 .form-group textarea,
 .form-group select{
@@ -644,17 +488,11 @@ button{
     color:white;
     outline:none;
 }
-
 .form-group textarea{
     min-height:100px;
     resize:vertical;
 }
-
-.payment-options{
-    display:grid;
-    gap:10px;
-}
-
+.payment-options{display:grid;gap:10px}
 .payment-option{
     border:1px solid #303747;
     border-radius:10px;
@@ -662,43 +500,30 @@ button{
     background:#151d2b;
 }
 
-.payment-option input{
-    margin-right:8px;
-}
-
-/* REVIEWS */
 .reviews{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:20px;
 }
-
 .review{
     background:#101624;
     border:1px solid #202938;
     padding:22px;
     border-radius:15px;
 }
-
 .review p{
     color:#aab3c2;
     line-height:1.6;
     margin:12px 0;
 }
 
-/* ABOUT */
 .about{
     max-width:800px;
     margin:auto;
     text-align:center;
 }
+.about p{color:#9da6b6;line-height:1.8}
 
-.about p{
-    color:#9da6b6;
-    line-height:1.8;
-}
-
-/* TOAST */
 .toast{
     position:fixed;
     bottom:25px;
@@ -712,74 +537,96 @@ button{
     z-index:5000;
     transition:.3s;
 }
+.toast.show{transform:translateX(-50%) translateY(0)}
 
-.toast.show{
-    transform:translateX(-50%) translateY(0);
+.auth-user{
+    display:none;
+    align-items:center;
+    gap:8px;
 }
-
-/* FOOTER */
-footer{
+.user-email{
+    max-width:130px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    color:#d4af37;
+    font-size:13px;
+}
+.auth-box{
+    max-width:430px;
+    margin:auto;
+}
+.auth-box h2{text-align:center;margin-bottom:8px}
+.auth-sub{
     text-align:center;
-    padding:35px 20px;
-    background:#050810;
-    color:#758095;
+    color:#8993a5;
+    margin-bottom:22px;
+}
+.auth-input{
+    width:100%;
+    padding:14px;
+    margin-bottom:12px;
+    border-radius:10px;
+    border:1px solid #303747;
+    background:#151d2b;
+    color:white;
+    outline:none;
+}
+.auth-divider{
+    text-align:center;
+    color:#697386;
+    margin:18px 0;
+}
+.google-btn{
+    width:100%;
+    padding:13px;
+    border-radius:10px;
+    border:1px solid #303747;
+    background:white;
+    color:#111;
+    font-weight:bold;
+}
+.auth-switch{
+    text-align:center;
+    color:#9da6b6;
+    margin-top:18px;
+    font-size:14px;
+}
+.auth-switch button{
+    border:none;
+    background:none;
+    color:#d4af37;
+    font-weight:bold;
+}
+.auth-error{
+    color:#ff697f;
+    font-size:13px;
+    min-height:18px;
+    margin-bottom:10px;
+    text-align:center;
 }
 
-/* MOBILE */
 @media(max-width:900px){
-    .products{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .features{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .reviews{
-        grid-template-columns:1fr;
-    }
+    .products{grid-template-columns:repeat(2,1fr)}
+    .features{grid-template-columns:repeat(2,1fr)}
+    .reviews{grid-template-columns:1fr}
 }
-
 @media(max-width:650px){
-    .nav-links{
-        display:none;
-    }
-
-    .navbar{
-        padding:12px 4%;
-    }
-
-    .hero{
-        min-height:520px;
-    }
-
-    .section{
-        padding:55px 4%;
-    }
-
-    .products{
-        grid-template-columns:1fr;
-    }
-
-    .features{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .detail-grid,
-    .checkout-grid{
-        grid-template-columns:1fr;
-    }
-
-    .detail-image{
-        height:320px;
-    }
+    .nav-links{display:none}
+    .navbar{padding:12px 4%}
+    .hero{min-height:520px}
+    .section{padding:55px 4%}
+    .products{grid-template-columns:1fr}
+    .features{grid-template-columns:1fr 1fr}
+    .detail-grid,.checkout-grid{grid-template-columns:1fr}
+    .detail-image{height:320px}
+    .user-email{display:none}
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <nav class="navbar">
     <a href="#" class="logo">
         <span class="logo-circle">FF</span>
@@ -794,6 +641,20 @@ footer{
     </div>
 
     <div class="nav-actions">
+
+        <div id="authLoggedOut">
+            <button class="account-btn" onclick="openAuth('login')">
+                👤 Login
+            </button>
+        </div>
+
+        <div id="authLoggedIn" class="auth-user">
+            <span id="userEmail" class="user-email"></span>
+            <button class="account-btn" onclick="logoutUser()">
+                Logout
+            </button>
+        </div>
+
         <button class="icon-btn" onclick="openWishlist()">
             ❤️
             <span class="badge" id="wishlistBadge">0</span>
@@ -806,11 +667,8 @@ footer{
     </div>
 </nav>
 
-
-<!-- HERO -->
 <section class="hero">
     <div class="hero-content">
-
         <span class="hero-tag">✨ PREMIUM FASHION COLLECTION</span>
 
         <h1>Style That <span>Speaks.</span></h1>
@@ -824,42 +682,32 @@ footer{
             <a href="#shop" class="btn btn-gold">Shop Collection</a>
             <button class="btn btn-dark" onclick="openCart()">View Cart 🛒</button>
         </div>
-
     </div>
 </section>
 
-
-<!-- FEATURES -->
 <section class="features">
-
     <div class="feature">
         <div class="feature-icon">🚚</div>
         <h3>Fast Delivery</h3>
         <p>Quick doorstep delivery</p>
     </div>
-
     <div class="feature">
         <div class="feature-icon">🔒</div>
         <h3>Secure Shopping</h3>
         <p>Safe checkout experience</p>
     </div>
-
     <div class="feature">
         <div class="feature-icon">↩️</div>
         <h3>Easy Returns</h3>
         <p>Simple return policy</p>
     </div>
-
     <div class="feature">
         <div class="feature-icon">💎</div>
         <h3>Premium Quality</h3>
         <p>Quality you can trust</p>
     </div>
-
 </section>
 
-
-<!-- SHOP -->
 <section class="section" id="shop">
 
     <div class="section-title">
@@ -888,25 +736,20 @@ footer{
 
     <div class="filters">
 
-        <button class="filter-btn active" onclick="setCategory('All',this)">
-            All
-        </button>
+        <button class="filter-btn active"
+            onclick="setCategory('All',this)">All</button>
 
-        <button class="filter-btn" onclick="setCategory('Men',this)">
-            Men
-        </button>
+        <button class="filter-btn"
+            onclick="setCategory('Men',this)">Men</button>
 
-        <button class="filter-btn" onclick="setCategory('Women',this)">
-            Women
-        </button>
+        <button class="filter-btn"
+            onclick="setCategory('Women',this)">Women</button>
 
-        <button class="filter-btn" onclick="setCategory('Shoes',this)">
-            Shoes
-        </button>
+        <button class="filter-btn"
+            onclick="setCategory('Shoes',this)">Shoes</button>
 
-        <button class="filter-btn" onclick="setCategory('Accessories',this)">
-            Accessories
-        </button>
+        <button class="filter-btn"
+            onclick="setCategory('Accessories',this)">Accessories</button>
 
     </div>
 
@@ -914,8 +757,6 @@ footer{
 
 </section>
 
-
-<!-- REVIEWS -->
 <section class="section" id="reviews">
 
     <div class="section-title">
@@ -927,26 +768,19 @@ footer{
 
         <div class="review">
             <div class="rating">★★★★★</div>
-            <p>
-                "Amazing quality and the design looks even better
-                in real life."
-            </p>
+            <p>"Amazing quality and the design looks even better in real life."</p>
             <strong>— Armaan</strong>
         </div>
 
         <div class="review">
             <div class="rating">★★★★★</div>
-            <p>
-                "Very clean website and fast ordering experience."
-            </p>
+            <p>"Very clean website and fast ordering experience."</p>
             <strong>— Ayesha</strong>
         </div>
 
         <div class="review">
             <div class="rating">★★★★☆</div>
-            <p>
-                "Loved the collection. Will definitely shop again."
-            </p>
+            <p>"Loved the collection. Will definitely shop again."</p>
             <strong>— Rahul</strong>
         </div>
 
@@ -954,8 +788,6 @@ footer{
 
 </section>
 
-
-<!-- ABOUT -->
 <section class="section" id="about">
 
     <div class="about">
@@ -980,9 +812,7 @@ footer{
 
     <div class="modal">
 
-        <button class="close" onclick="closeModal('productModal')">
-            ×
-        </button>
+        <button class="close" onclick="closeModal('productModal')">×</button>
 
         <div class="detail-grid">
 
@@ -1000,19 +830,31 @@ footer{
 
                 <div class="option-title">Select Size</div>
 
-                <div class="options" id="sizeOptions">
-                    <button class="option" onclick="selectOption(this,'size')">S</button>
-                    <button class="option selected" onclick="selectOption(this,'size')">M</button>
-                    <button class="option" onclick="selectOption(this,'size')">L</button>
-                    <button class="option" onclick="selectOption(this,'size')">XL</button>
+                <div class="options">
+                    <button class="option"
+                        onclick="selectOption(this)">S</button>
+
+                    <button class="option selected"
+                        onclick="selectOption(this)">M</button>
+
+                    <button class="option"
+                        onclick="selectOption(this)">L</button>
+
+                    <button class="option"
+                        onclick="selectOption(this)">XL</button>
                 </div>
 
                 <div class="option-title">Select Color</div>
 
-                <div class="options" id="colorOptions">
-                    <button class="option selected" onclick="selectOption(this,'color')">Black</button>
-                    <button class="option" onclick="selectOption(this,'color')">White</button>
-                    <button class="option" onclick="selectOption(this,'color')">Blue</button>
+                <div class="options">
+                    <button class="option selected"
+                        onclick="selectOption(this)">Black</button>
+
+                    <button class="option"
+                        onclick="selectOption(this)">White</button>
+
+                    <button class="option"
+                        onclick="selectOption(this)">Blue</button>
                 </div>
 
                 <div class="qty">
@@ -1021,11 +863,15 @@ footer{
                     <button onclick="changeDetailQty(1)">+</button>
                 </div>
 
-                <button class="btn btn-gold" style="width:100%" onclick="addDetailToCart()">
+                <button class="btn btn-gold"
+                    style="width:100%"
+                    onclick="addDetailToCart()">
                     Add To Cart 🛒
                 </button>
 
-                <button class="btn btn-dark" style="width:100%;margin-top:10px" onclick="buyNow()">
+                <button class="btn btn-dark"
+                    style="width:100%;margin-top:10px"
+                    onclick="buyNow()">
                     Buy Now ⚡
                 </button>
 
@@ -1034,16 +880,14 @@ footer{
         </div>
 
     </div>
-
 </div>
 
 
-<!-- CART DRAWER -->
+<!-- CART -->
 <div class="drawer" id="cartDrawer">
 
     <div class="drawer-header">
         <h2>Your Cart 🛒</h2>
-
         <button class="close" onclick="closeCart()">×</button>
     </div>
 
@@ -1071,33 +915,31 @@ footer{
             <span id="total">₹0</span>
         </div>
 
-        <button class="btn btn-dark" style="width:100%;margin-top:15px"
-                onclick="applyCoupon()">
+        <button class="btn btn-dark"
+            style="width:100%;margin-top:15px"
+            onclick="applyCoupon()">
             🎟️ Apply Coupon
         </button>
 
-        <button class="btn btn-gold" style="width:100%;margin-top:10px"
-                onclick="openCheckout()">
+        <button class="btn btn-gold"
+            style="width:100%;margin-top:10px"
+            onclick="openCheckout()">
             Checkout →
         </button>
 
     </div>
-
 </div>
 
 
-<!-- CHECKOUT MODAL -->
+<!-- CHECKOUT -->
 <div class="modal-bg" id="checkoutModal">
 
     <div class="modal">
 
-        <button class="close" onclick="closeModal('checkoutModal')">
-            ×
-        </button>
+        <button class="close"
+            onclick="closeModal('checkoutModal')">×</button>
 
-        <h2 style="margin-bottom:25px">
-            Complete Your Order
-        </h2>
+        <h2 style="margin-bottom:25px">Complete Your Order</h2>
 
         <div class="checkout-grid">
 
@@ -1116,7 +958,7 @@ footer{
                 <div class="form-group">
                     <label>Delivery Address</label>
                     <textarea id="customerAddress"
-                    placeholder="House no, street, city, PIN"></textarea>
+                        placeholder="House no, street, city, PIN"></textarea>
                 </div>
 
                 <div class="form-group">
@@ -1125,12 +967,17 @@ footer{
                     <div class="payment-options">
 
                         <label class="payment-option">
-                            <input type="radio" name="payment" value="COD" checked>
+                            <input type="radio"
+                                name="payment"
+                                value="COD"
+                                checked>
                             Cash on Delivery
                         </label>
 
                         <label class="payment-option">
-                            <input type="radio" name="payment" value="UPI">
+                            <input type="radio"
+                                name="payment"
+                                value="UPI">
                             UPI
                         </label>
 
@@ -1138,7 +985,6 @@ footer{
                 </div>
 
             </div>
-
 
             <div>
 
@@ -1171,8 +1017,8 @@ footer{
                 </div>
 
                 <button class="btn btn-gold"
-                        style="width:100%;margin-top:20px"
-                        onclick="placeOrder()">
+                    style="width:100%;margin-top:20px"
+                    onclick="placeOrder()">
                     📲 Place Order on WhatsApp
                 </button>
 
@@ -1181,45 +1027,164 @@ footer{
         </div>
 
     </div>
-
 </div>
 
 
-<!-- WISHLIST MODAL -->
+<!-- WISHLIST -->
 <div class="modal-bg" id="wishlistModal">
 
     <div class="modal">
 
-        <button class="close" onclick="closeModal('wishlistModal')">
-            ×
-        </button>
+        <button class="close"
+            onclick="closeModal('wishlistModal')">×</button>
 
-        <h2 style="margin-bottom:25px">
-            ❤️ My Wishlist
-        </h2>
+        <h2 style="margin-bottom:25px">❤️ My Wishlist</h2>
 
         <div class="products" id="wishlistProducts"></div>
 
     </div>
-
 </div>
 
 
-<!-- TOAST -->
-<div class="toast" id="toast">
-    Added to cart!
+<!-- LOGIN / SIGNUP -->
+<div class="modal-bg" id="authModal">
+
+    <div class="modal">
+
+        <button class="close"
+            onclick="closeModal('authModal')">×</button>
+
+        <div class="auth-box">
+
+            <h2 id="authTitle">Welcome Back 👋</h2>
+
+            <p class="auth-sub" id="authSubtitle">
+                Login to your FARHANFASHION account
+            </p>
+
+            <input
+                id="authName"
+                class="auth-input"
+                placeholder="Your Name"
+                style="display:none"
+            >
+
+            <input
+                id="authEmail"
+                class="auth-input"
+                type="email"
+                placeholder="Email Address"
+            >
+
+            <input
+                id="authPassword"
+                class="auth-input"
+                type="password"
+                placeholder="Password"
+            >
+
+            <div id="authError" class="auth-error"></div>
+
+            <button
+                class="btn btn-gold"
+                style="width:100%"
+                onclick="submitAuth()">
+
+                Login
+
+            </button>
+
+            <div class="auth-divider">OR</div>
+
+            <button
+                class="google-btn"
+                onclick="googleLogin()">
+
+                🔵 Continue with Google
+
+            </button>
+
+            <div class="auth-switch">
+
+                <span id="authSwitchText">
+                    Don't have an account?
+                </span>
+
+                <button onclick="toggleAuthMode()"
+                    id="authSwitchBtn">
+
+                    Sign Up
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
 </div>
 
+
+<div class="toast" id="toast">Done!</div>
 
 <footer>
     © 2026 FARHANFASHION — Premium Fashion Store
 </footer>
 
 
-<script>
+<!-- FIREBASE + WEBSITE JAVASCRIPT -->
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    GoogleAuthProvider,
+    signInWithPopup,
+    onAuthStateChanged,
+    signOut
+}
+from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+
+import {
+    getFirestore
+}
+from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+
 
 /* =========================
-   PRODUCT DATABASE
+   FIREBASE CONFIG
+========================= */
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDgflsn-NCjglo72qa-RWe_qspjBCIs_Ww",
+  authDomain: "farhanfashion-268e8.firebaseapp.com",
+  projectId: "farhanfashion-268e8",
+  storageBucket: "farhanfashion-268e8.firebasestorage.app",
+  messagingSenderId: "593651964207",
+  appId: "1:593651964207:web:c5a15e5dd055ce8925a9da",
+  measurementId: "G-SP8NYB7WWD"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+const googleProvider =
+    new GoogleAuthProvider();
+
+
+console.log("🔥 Firebase connected successfully!");
+
+
+/* =========================
+   PRODUCTS
 ========================= */
 
 const products = [
@@ -1233,7 +1198,7 @@ const products = [
     rating:4.8,
     badge:"BEST SELLER",
     image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
-    description:"Premium cotton t-shirt with a clean modern fit. Comfortable for everyday wear."
+    description:"Premium cotton t-shirt with a clean modern fit."
 },
 
 {
@@ -1245,7 +1210,7 @@ const products = [
     rating:4.7,
     badge:"NEW",
     image:"https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80",
-    description:"A timeless white shirt designed for a clean and sophisticated look."
+    description:"A timeless white shirt designed for a clean look."
 },
 
 {
@@ -1257,7 +1222,7 @@ const products = [
     rating:4.9,
     badge:"TRENDING",
     image:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=800&q=80",
-    description:"Elegant fashion dress designed for parties, events and special occasions."
+    description:"Elegant dress designed for special occasions."
 },
 
 {
@@ -1269,7 +1234,7 @@ const products = [
     rating:4.8,
     badge:"HOT",
     image:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80",
-    description:"Soft oversized hoodie with a premium streetwear-inspired design."
+    description:"Soft oversized hoodie with a streetwear-inspired design."
 },
 
 {
@@ -1281,7 +1246,7 @@ const products = [
     rating:4.6,
     badge:"SALE",
     image:"https://images.unsplash.com/photo-1564257577054-1f4d2f0c8d7d?auto=format&fit=crop&w=800&q=80",
-    description:"Comfortable casual top perfect for everyday outfits."
+    description:"Comfortable casual top for everyday outfits."
 },
 
 {
@@ -1293,7 +1258,7 @@ const products = [
     rating:4.9,
     badge:"TOP RATED",
     image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
-    description:"Modern sneakers combining comfort, style and everyday performance."
+    description:"Modern sneakers combining comfort and style."
 },
 
 {
@@ -1317,17 +1282,14 @@ const products = [
     rating:4.8,
     badge:"TRENDING",
     image:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80",
-    description:"Stylish and practical backpack suitable for college, work and travel."
+    description:"Stylish and practical backpack for college, work and travel."
 }
 
 ];
 
 
-/* =========================
-   VARIABLES
-========================= */
-
-let cart = JSON.parse(localStorage.getItem("farhanCart")) || [];
+let cart =
+    JSON.parse(localStorage.getItem("farhanCart")) || [];
 
 let wishlist =
     JSON.parse(localStorage.getItem("farhanWishlist")) || [];
@@ -1340,9 +1302,11 @@ let detailQty = 1;
 
 let discountAmount = 0;
 
+let authMode = "login";
+
 
 /* =========================
-   SAVE DATA
+   STORAGE
 ========================= */
 
 function saveData(){
@@ -1356,15 +1320,14 @@ function saveData(){
         "farhanWishlist",
         JSON.stringify(wishlist)
     );
-
 }
 
 
 /* =========================
-   RENDER PRODUCTS
+   PRODUCTS
 ========================= */
 
-function renderProducts(){
+window.renderProducts = function(){
 
     const container =
         document.getElementById("products");
@@ -1377,44 +1340,42 @@ function renderProducts(){
     const sort =
         document.getElementById("sort").value;
 
-    let list = products.filter(product => {
+    let list =
+        products.filter(product => {
 
-        const matchesCategory =
-            category === "All" ||
-            product.category === category;
+            const matchesCategory =
+                category === "All" ||
+                product.category === category;
 
-        const matchesSearch =
-            product.name.toLowerCase()
-            .includes(search);
+            const matchesSearch =
+                product.name
+                .toLowerCase()
+                .includes(search);
 
-        return matchesCategory && matchesSearch;
+            return matchesCategory && matchesSearch;
 
-    });
+        });
 
 
-    if(sort === "low"){
-        list.sort((a,b) => a.price - b.price);
-    }
+    if(sort === "low")
+        list.sort((a,b)=>a.price-b.price);
 
-    if(sort === "high"){
-        list.sort((a,b) => b.price - a.price);
-    }
+    if(sort === "high")
+        list.sort((a,b)=>b.price-a.price);
 
-    if(sort === "rating"){
-        list.sort((a,b) => b.rating - a.rating);
-    }
+    if(sort === "rating")
+        list.sort((a,b)=>b.rating-a.rating);
 
 
     container.innerHTML = "";
 
 
-    if(list.length === 0){
+    if(!list.length){
 
         container.innerHTML =
         "<p style='color:#8993a5'>No products found.</p>";
 
         return;
-
     }
 
 
@@ -1445,7 +1406,6 @@ function renderProducts(){
 
             </div>
 
-
             <div class="product-info">
 
                 <h3>${product.name}</h3>
@@ -1458,15 +1418,11 @@ function renderProducts(){
                 </div>
 
                 <div class="price">
-
                     ₹${product.price}
-
                     <span class="old-price">
                         ₹${product.oldPrice}
                     </span>
-
                 </div>
-
 
                 <div class="product-actions">
 
@@ -1496,14 +1452,10 @@ function renderProducts(){
 
     });
 
-}
+};
 
 
-/* =========================
-   CATEGORY
-========================= */
-
-function setCategory(cat, button){
+window.setCategory = function(cat,button){
 
     category = cat;
 
@@ -1515,23 +1467,22 @@ function setCategory(cat, button){
     button.classList.add("active");
 
     renderProducts();
-
-}
+};
 
 
 /* =========================
-   PRODUCT DETAIL
+   PRODUCT
 ========================= */
 
-function openProduct(id){
+window.openProduct = function(id){
 
     currentProduct =
-        products.find(p => p.id === id);
+        products.find(p=>p.id===id);
 
     detailQty = 1;
 
     document.getElementById("detailQty")
-    .innerText = detailQty;
+    .innerText = 1;
 
     document.getElementById("detailImage")
     .src = currentProduct.image;
@@ -1547,45 +1498,38 @@ function openProduct(id){
         "★★★★★ " + currentProduct.rating;
 
     document.getElementById("detailDescription")
-    .innerText =
-        currentProduct.description;
+    .innerText = currentProduct.description;
 
     document.getElementById("productModal")
     .classList.add("show");
+};
 
-}
 
-
-function changeDetailQty(value){
+window.changeDetailQty = function(value){
 
     detailQty += value;
 
-    if(detailQty < 1){
+    if(detailQty < 1)
         detailQty = 1;
-    }
 
     document.getElementById("detailQty")
     .innerText = detailQty;
+};
 
-}
 
+window.selectOption = function(button){
 
-function selectOption(button, type){
-
-    const parent =
-        button.parentElement;
-
-    parent.querySelectorAll(".option")
+    button.parentElement
+    .querySelectorAll(".option")
     .forEach(btn =>
         btn.classList.remove("selected")
     );
 
     button.classList.add("selected");
+};
 
-}
 
-
-function addDetailToCart(){
+window.addDetailToCart = function(){
 
     if(!currentProduct) return;
 
@@ -1595,11 +1539,10 @@ function addDetailToCart(){
     );
 
     closeModal("productModal");
+};
 
-}
 
-
-function buyNow(){
+window.buyNow = function(){
 
     if(!currentProduct) return;
 
@@ -1611,45 +1554,38 @@ function buyNow(){
     closeModal("productModal");
 
     openCart();
-
-}
+};
 
 
 /* =========================
    CART
 ========================= */
 
-function quickAdd(id){
+window.quickAdd = function(id){
 
     addToCart(id,1);
+};
 
-}
 
-
-function addToCart(id, quantity){
+function addToCart(id,quantity){
 
     const existing =
-        cart.find(item => item.id === id);
+        cart.find(item=>item.id===id);
 
-    if(existing){
-
+    if(existing)
         existing.quantity += quantity;
 
-    }else{
-
+    else
         cart.push({
             id:id,
             quantity:quantity
         });
 
-    }
-
     saveData();
 
     updateCart();
 
-    showToast("🛒 Product added to cart!");
-
+    showToast("🛒 Product added!");
 }
 
 
@@ -1660,16 +1596,15 @@ function updateCart(){
 
     container.innerHTML = "";
 
-
     let subtotal = 0;
 
     let totalItems = 0;
 
 
-    cart.forEach(item => {
+    cart.forEach(item=>{
 
         const product =
-            products.find(p => p.id === item.id);
+            products.find(p=>p.id===item.id);
 
         if(!product) return;
 
@@ -1689,21 +1624,17 @@ function updateCart(){
 
                 <h4>${product.name}</h4>
 
-                <p>
-                    ₹${product.price}
-                </p>
+                <p>₹${product.price}</p>
 
                 <div class="cart-controls">
 
-                    <button
-                        onclick="changeCartQty(${item.id},-1)">
+                    <button onclick="changeCartQty(${item.id},-1)">
                         −
                     </button>
 
                     <span>${item.quantity}</span>
 
-                    <button
-                        onclick="changeCartQty(${item.id},1)">
+                    <button onclick="changeCartQty(${item.id},1)">
                         +
                     </button>
 
@@ -1728,18 +1659,8 @@ function updateCart(){
 
     let delivery = 0;
 
-    if(subtotal > 0 && subtotal < 1500){
+    if(subtotal > 0 && subtotal < 1500)
         delivery = 99;
-    }
-
-    if(subtotal >= 1500){
-        delivery = 0;
-    }
-
-
-    if(discountAmount > subtotal){
-        discountAmount = subtotal;
-    }
 
 
     const total =
@@ -1766,14 +1687,13 @@ function updateCart(){
 
     document.getElementById("cartBadge")
     .innerText = totalItems;
-
 }
 
 
-function changeCartQty(id, value){
+window.changeCartQty = function(id,value){
 
     const item =
-        cart.find(item => item.id === id);
+        cart.find(item=>item.id===id);
 
     if(!item) return;
 
@@ -1782,76 +1702,66 @@ function changeCartQty(id, value){
     if(item.quantity <= 0){
 
         cart =
-            cart.filter(item => item.id !== id);
+            cart.filter(item=>item.id!==id);
 
     }
 
     saveData();
 
     updateCart();
+};
 
-}
 
-
-function removeFromCart(id){
+window.removeFromCart = function(id){
 
     cart =
-        cart.filter(item => item.id !== id);
+        cart.filter(item=>item.id!==id);
 
     saveData();
 
     updateCart();
 
     showToast("Product removed");
+};
 
-}
 
-
-function openCart(){
+window.openCart = function(){
 
     document
         .getElementById("cartDrawer")
         .classList.add("show");
 
     updateCart();
+};
 
-}
 
-
-function closeCart(){
+window.closeCart = function(){
 
     document
         .getElementById("cartDrawer")
         .classList.remove("show");
-
-}
+};
 
 
 /* =========================
    COUPON
 ========================= */
 
-function applyCoupon(){
+window.applyCoupon = function(){
 
-    if(cart.length === 0){
+    if(!cart.length){
 
         showToast("Cart is empty!");
 
         return;
-
     }
 
-
     const code =
-        prompt(
-            "Enter coupon code:\nTry: FARHAN10"
-        );
-
+        prompt("Enter coupon code:\nTry: FARHAN10");
 
     if(!code) return;
 
-
-    if(code.toUpperCase() === "FARHAN10"){
+    if(code.toUpperCase()==="FARHAN10"){
 
         discountAmount = 100;
 
@@ -1864,32 +1774,28 @@ function applyCoupon(){
         showToast("❌ Invalid coupon");
 
     }
-
-}
+};
 
 
 /* =========================
    CHECKOUT
 ========================= */
 
-function openCheckout(){
+window.openCheckout = function(){
 
-    if(cart.length === 0){
+    if(!cart.length){
 
         showToast("Please add a product first!");
 
         return;
-
     }
-
 
     updateCheckout();
 
     document
         .getElementById("checkoutModal")
         .classList.add("show");
-
-}
+};
 
 
 function updateCheckout(){
@@ -1899,14 +1805,13 @@ function updateCheckout(){
 
     container.innerHTML = "";
 
-
     let subtotal = 0;
 
 
-    cart.forEach(item => {
+    cart.forEach(item=>{
 
         const product =
-            products.find(p => p.id === item.id);
+            products.find(p=>p.id===item.id);
 
         subtotal +=
             product.price * item.quantity;
@@ -1922,8 +1827,7 @@ function updateCheckout(){
         ">
 
             <span>
-                ${product.name}
-                × ${item.quantity}
+                ${product.name} × ${item.quantity}
             </span>
 
             <strong>
@@ -1940,8 +1844,7 @@ function updateCheckout(){
     let delivery =
         subtotal >= 1500 ? 0 : 99;
 
-
-    const total =
+    let total =
         Math.max(
             0,
             subtotal - discountAmount + delivery
@@ -1960,22 +1863,20 @@ function updateCheckout(){
 
     document.getElementById("checkoutTotal")
     .innerText = "₹" + total;
-
-}
+};
 
 
 /* =========================
-   PLACE ORDER
+   WHATSAPP ORDER
 ========================= */
 
-function placeOrder(){
+window.placeOrder = function(){
 
-    if(cart.length === 0){
+    if(!cart.length){
 
         showToast("Cart is empty!");
 
         return;
-
     }
 
 
@@ -1997,7 +1898,6 @@ function placeOrder(){
         showToast("⚠️ Please fill all details");
 
         return;
-
     }
 
 
@@ -2009,9 +1909,9 @@ function placeOrder(){
 
     let subtotal = 0;
 
+
     let message =
         "🛍️ *NEW FARHANFASHION ORDER*%0A%0A";
-
 
     message +=
         "👤 Name: " +
@@ -2033,14 +1933,14 @@ function placeOrder(){
         payment +
         "%0A%0A";
 
-    message +=
-        "🛒 *ORDER ITEMS*%0A";
+
+    message += "🛒 *ORDER ITEMS*%0A";
 
 
-    cart.forEach(item => {
+    cart.forEach(item=>{
 
         const product =
-            products.find(p => p.id === item.id);
+            products.find(p=>p.id===item.id);
 
         const itemTotal =
             product.price * item.quantity;
@@ -2071,56 +1971,45 @@ function placeOrder(){
 
 
     message +=
-        "%0ASubtotal: ₹" +
-        subtotal;
+        "%0ASubtotal: ₹" + subtotal;
 
     message +=
-        "%0ADiscount: ₹" +
-        discountAmount;
+        "%0ADiscount: ₹" + discountAmount;
 
     message +=
         "%0ADelivery: " +
-        (delivery === 0 ? "FREE" : "₹" + delivery);
+        (delivery===0 ? "FREE" : "₹"+delivery);
 
     message +=
-        "%0A*TOTAL: ₹" +
-        total +
-        "*";
+        "%0A*TOTAL: ₹" + total + "*";
 
 
-    /*
-       YOUR WHATSAPP NUMBER
-       Already set to your number.
-    */
-
-    let phoneNumber =
+    const phoneNumber =
         "919529641904";
 
 
-    const url =
+    window.open(
         "https://wa.me/" +
         phoneNumber +
         "?text=" +
-        message;
-
-
-    window.open(url,"_blank");
-
-}
+        message,
+        "_blank"
+    );
+};
 
 
 /* =========================
    WISHLIST
 ========================= */
 
-function toggleWishlist(id){
+window.toggleWishlist = function(id){
 
     if(wishlist.includes(id)){
 
         wishlist =
-            wishlist.filter(item => item !== id);
+            wishlist.filter(item=>item!==id);
 
-        showToast("Removed from wishlist ❤️");
+        showToast("Removed from wishlist");
 
     }else{
 
@@ -2130,25 +2019,22 @@ function toggleWishlist(id){
 
     }
 
-
     saveData();
 
     renderProducts();
 
     updateWishlistBadge();
-
-}
+};
 
 
 function updateWishlistBadge(){
 
     document.getElementById("wishlistBadge")
     .innerText = wishlist.length;
-
 }
 
 
-function openWishlist(){
+window.openWishlist = function(){
 
     const container =
         document.getElementById("wishlistProducts");
@@ -2156,17 +2042,17 @@ function openWishlist(){
     container.innerHTML = "";
 
 
-    if(wishlist.length === 0){
+    if(!wishlist.length){
 
         container.innerHTML =
-        "<p style='color:#8993a5'>Your wishlist is empty.</p>";
+            "<p style='color:#8993a5'>Your wishlist is empty.</p>";
 
     }else{
 
-        wishlist.forEach(id => {
+        wishlist.forEach(id=>{
 
             const product =
-                products.find(p => p.id === id);
+                products.find(p=>p.id===id);
 
             container.innerHTML += `
 
@@ -2209,21 +2095,19 @@ function openWishlist(){
     document
         .getElementById("wishlistModal")
         .classList.add("show");
-
-}
+};
 
 
 /* =========================
    MODAL
 ========================= */
 
-function closeModal(id){
+window.closeModal = function(id){
 
     document
         .getElementById(id)
         .classList.remove("show");
-
-}
+};
 
 
 /* =========================
@@ -2239,14 +2123,314 @@ function showToast(text){
 
     toast.classList.add("show");
 
-
-    setTimeout(() => {
-
+    setTimeout(()=>{
         toast.classList.remove("show");
-
     },2200);
-
 }
+
+
+/* =========================
+   AUTH UI
+========================= */
+
+window.openAuth = function(mode="login"){
+
+    authMode = mode;
+
+    updateAuthUI();
+
+    document
+        .getElementById("authModal")
+        .classList.add("show");
+};
+
+
+function updateAuthUI(){
+
+    const title =
+        document.getElementById("authTitle");
+
+    const subtitle =
+        document.getElementById("authSubtitle");
+
+    const nameInput =
+        document.getElementById("authName");
+
+    const submitButton =
+        document.querySelector(
+            '#authModal .btn-gold'
+        );
+
+    const switchText =
+        document.getElementById("authSwitchText");
+
+    const switchButton =
+        document.getElementById("authSwitchBtn");
+
+
+    document.getElementById("authError")
+    .innerText = "";
+
+
+    if(authMode==="login"){
+
+        title.innerText = "Welcome Back 👋";
+
+        subtitle.innerText =
+            "Login to your FARHANFASHION account";
+
+        nameInput.style.display = "none";
+
+        submitButton.innerText = "Login";
+
+        switchText.innerText =
+            "Don't have an account?";
+
+        switchButton.innerText = "Sign Up";
+
+    }else{
+
+        title.innerText = "Create Account ✨";
+
+        subtitle.innerText =
+            "Join FARHANFASHION today";
+
+        nameInput.style.display = "block";
+
+        submitButton.innerText = "Create Account";
+
+        switchText.innerText =
+            "Already have an account?";
+
+        switchButton.innerText = "Login";
+
+    }
+}
+
+
+window.toggleAuthMode = function(){
+
+    authMode =
+        authMode==="login"
+        ? "signup"
+        : "login";
+
+    updateAuthUI();
+};
+
+
+window.submitAuth = async function(){
+
+    const email =
+        document.getElementById("authEmail")
+        .value.trim();
+
+    const password =
+        document.getElementById("authPassword")
+        .value;
+
+    const name =
+        document.getElementById("authName")
+        .value.trim();
+
+    const error =
+        document.getElementById("authError");
+
+
+    error.innerText = "";
+
+
+    if(!email || !password){
+
+        error.innerText =
+            "Email aur password bharna zaroori hai.";
+
+        return;
+    }
+
+
+    if(password.length < 6){
+
+        error.innerText =
+            "Password minimum 6 characters ka hona chahiye.";
+
+        return;
+    }
+
+
+    try{
+
+        if(authMode==="signup"){
+
+            if(!name){
+
+                error.innerText =
+                    "Apna naam bhi enter karo.";
+
+                return;
+            }
+
+            await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+            showToast("🎉 Account created!");
+
+        }else{
+
+            await signInWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+            showToast("✅ Login successful!");
+
+        }
+
+
+        closeModal("authModal");
+
+        document.getElementById("authEmail").value = "";
+
+        document.getElementById("authPassword").value = "";
+
+        document.getElementById("authName").value = "";
+
+
+    }catch(errorObj){
+
+        console.error(errorObj);
+
+        error.innerText =
+            firebaseFriendlyError(
+                errorObj.code
+            );
+
+    }
+
+};
+
+
+window.googleLogin = async function(){
+
+    const error =
+        document.getElementById("authError");
+
+    error.innerText = "";
+
+
+    try{
+
+        await signInWithPopup(
+            auth,
+            googleProvider
+        );
+
+        closeModal("authModal");
+
+        showToast("✅ Google login successful!");
+
+    }catch(errorObj){
+
+        console.error(errorObj);
+
+        error.innerText =
+            firebaseFriendlyError(
+                errorObj.code
+            );
+
+    }
+
+};
+
+
+window.logoutUser = async function(){
+
+    try{
+
+        await signOut(auth);
+
+        showToast("Logged out successfully");
+
+    }catch(error){
+
+        console.error(error);
+
+    }
+
+};
+
+
+function firebaseFriendlyError(code){
+
+    switch(code){
+
+        case "auth/invalid-email":
+            return "Email address sahi nahi hai.";
+
+        case "auth/email-already-in-use":
+            return "Ye email pehle se registered hai.";
+
+        case "auth/weak-password":
+            return "Password thoda strong rakho.";
+
+        case "auth/invalid-credential":
+            return "Email ya password galat hai.";
+
+        case "auth/popup-closed-by-user":
+            return "Google login window close ho gayi.";
+
+        case "auth/popup-blocked":
+            return "Browser ne popup block kar diya.";
+
+        case "auth/operation-not-allowed":
+            return "Ye login method Firebase mein enabled nahi hai.";
+
+        default:
+            return "Login/signup mein problem aayi. Dobara try karo.";
+    }
+}
+
+
+/* =========================
+   AUTH STATE
+========================= */
+
+onAuthStateChanged(auth,user=>{
+
+    const loggedOut =
+        document.getElementById("authLoggedOut");
+
+    const loggedIn =
+        document.getElementById("authLoggedIn");
+
+    const userEmail =
+        document.getElementById("userEmail");
+
+
+    if(user){
+
+        loggedOut.style.display = "none";
+
+        loggedIn.style.display = "flex";
+
+        userEmail.innerText =
+            user.email || "User";
+
+    }else{
+
+        loggedOut.style.display = "block";
+
+        loggedIn.style.display = "none";
+
+        userEmail.innerText = "";
+
+    }
+
+});
 
 
 /* =========================
@@ -2258,6 +2442,8 @@ renderProducts();
 updateCart();
 
 updateWishlistBadge();
+
+updateAuthUI();
 
 </script>
 
